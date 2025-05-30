@@ -2302,6 +2302,7 @@
             <input type="hidden" name="_subject" value="New Book Donation Submission">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_autoresponse" value="Thank you for your book donation! We appreciate your generosity and will contact you shortly to arrange pickup/drop-off. Your contribution helps spread knowledge to those in need. - BookShare Team">
+            <input type="hidden" name="_replyto" value="donations@bookshare.org">
             
             <div class="form-group">
                 <label for="name">Full Name*</label>
@@ -2673,6 +2674,13 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     <script>
         // FormSubmit dynamic CC
+        document.querySelector('.donation-form').addEventListener('submit', function(e) {
+        // Show immediate feedback
+        alert('Thank you for your donation! A confirmation email will be sent to you shortly.');
+        
+        // Continue with form submission
+        return true;
+        });
         // Add this to your existing JavaScript
         document.querySelector('.donation-form').addEventListener('submit', function(e) {
             const emailInput = this.querySelector('input[name="email"]');
